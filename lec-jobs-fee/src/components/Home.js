@@ -2,7 +2,7 @@ import { Component } from "react";
 
 class Home extends Component{
     render(){
-        return( <div className="wrapper">
+        return     <div className="wrapper">
         <header>
           <div className="container">
             <div className="header-data">
@@ -116,7 +116,6 @@ class Home extends Component{
                             </h3>
                             <span>2 min ago</span>
                           </div>
-                          
                         </div>
                         <div className="notfication-details">
                           <div className="noty-user-img">
@@ -129,7 +128,6 @@ class Home extends Component{
                             </h3>
                             <span>2 min ago</span>
                           </div>
-                          
                         </div>
                         <div className="notfication-details">
                           <div className="noty-user-img">
@@ -142,7 +140,7 @@ class Home extends Component{
                             </h3>
                             <span>2 min ago</span>
                           </div>
-                          
+                         
                         </div>
                         <div className="notfication-details">
                           <div className="noty-user-img">
@@ -161,9 +159,9 @@ class Home extends Component{
                           <a href="#" title="">View All Notification</a>
                         </div>
                       </div>
-            
+                     
                     </div>
-                    
+                   
                   </li>
                 </ul>
               </nav>
@@ -257,7 +255,7 @@ class Home extends Component{
                           </li>
                         </ul>
                       </div>
-                      <div className="suggestions full-width" style="display: none">
+                      <div className="suggestions full-width" style={{display: "none"}}>
                         <div className="sd-title">
                           <h3>Suggestions</h3>
                           <i className="la la-ellipsis-v"></i>
@@ -316,7 +314,7 @@ class Home extends Component{
                           </div>
                         </div>
                       </div>
-                      <div className="tags-sec full-width" style="display: none">
+                      <div className="tags-sec full-width" style={{display: "none"}}>
                         <ul>
                           <li>
                             <a href="./index.html#" title="">Help Center</a>
@@ -425,7 +423,7 @@ class Home extends Component{
                                 >
                               </li>
                             </ul>
-                            <ul className="bk-links" style="display: none">
+                            <ul className="bk-links" style={{display: "none"}}>
                               <li>
                                 <a href="./index.html#" title=""
                                   ><i className="la la-bookmark"></i
@@ -485,7 +483,7 @@ class Home extends Component{
                             >
                           </div>
                         </div>
-                        <div className="top-profiles" style="display: none">
+                        <div className="top-profiles" style={{display: "none"}}>
                           <div className="pf-hd">
                             <h3>Top Profiles</h3>
                             <i className="la la-ellipsis-v"></i>
@@ -495,23 +493,23 @@ class Home extends Component{
                           >
                             <span
                               className="slick-previous slick-arrow"
-                              style="display: inline"
+                              style={{display: "inline"}}
                             ></span>
                             <div className="slick-list draggable">
                               <div
                                 className="slick-track"
-                                style="
-                                  opacity: 1;
-                                  width: 2415px;
-                                  transform: translate3d(-805px, 0px, 0px);
-                                  transition: transform 500ms ease 0s;
-                                "
+                                style={{
+                                  opacity: "1",
+                                  width: "2415px",
+                                  transform: "translate3d(-805px, 0px, 0px)",
+                                  transition: "transform 500ms ease 0s",
+                                }}
                               >
                                 <div
                                   className="user-profy slick-slide slick-cloned"
                                   data-slick-index="-3"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="-1"
                                 >
                                   <img src="./images/user1.png" alt="" />
@@ -554,7 +552,7 @@ class Home extends Component{
                                   className="user-profy slick-slide slick-cloned"
                                   data-slick-index="-2"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="-1"
                                 >
                                   <img src="./images/user2.png" alt="" />
@@ -597,7 +595,7 @@ class Home extends Component{
                                   className="user-profy slick-slide slick-cloned"
                                   data-slick-index="-1"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="-1"
                                 >
                                   <img src="./images/user3.png" alt="" />
@@ -640,7 +638,7 @@ class Home extends Component{
                                   className="user-profy slick-slide"
                                   data-slick-index="0"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="-1"
                                 >
                                   <img src="./images/user1.png" alt="" />
@@ -683,7 +681,7 @@ class Home extends Component{
                                   className="user-profy slick-slide"
                                   data-slick-index="1"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="0"
                                 >
                                   <img src="./images/user2.png" alt="" />
@@ -726,7 +724,7 @@ class Home extends Component{
                                   className="user-profy slick-slide slick-current slick-active"
                                   data-slick-index="2"
                                   aria-hidden="false"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="0"
                                 >
                                   <img src="./images/user3.png" alt="" />
@@ -769,7 +767,7 @@ class Home extends Component{
                                   className="user-profy slick-slide slick-active"
                                   data-slick-index="3"
                                   aria-hidden="false"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="0"
                                 >
                                   <img src="./images/user1.png" alt="" />
@@ -812,7 +810,7 @@ class Home extends Component{
                                   className="user-profy slick-slide slick-active"
                                   data-slick-index="4"
                                   aria-hidden="false"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="-1"
                                 >
                                   <img src="./images/user2.png" alt="" />
@@ -855,7 +853,7 @@ class Home extends Component{
                                   className="user-profy slick-slide"
                                   data-slick-index="5"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="-1"
                                 >
                                   <img src="./images/user3.png" alt="" />
@@ -898,7 +896,7 @@ class Home extends Component{
                                   className="user-profy slick-slide slick-cloned"
                                   data-slick-index="6"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="-1"
                                 >
                                   <img src="./images/user1.png" alt="" />
@@ -941,7 +939,7 @@ class Home extends Component{
                                   className="user-profy slick-slide slick-cloned"
                                   data-slick-index="7"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="-1"
                                 >
                                   <img src="./images/user2.png" alt="" />
@@ -984,7 +982,7 @@ class Home extends Component{
                                   className="user-profy slick-slide slick-cloned"
                                   data-slick-index="8"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="-1"
                                 >
                                   <img src="./images/user3.png" alt="" />
@@ -1027,7 +1025,7 @@ class Home extends Component{
                                   className="user-profy slick-slide slick-cloned"
                                   data-slick-index="9"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="-1"
                                 >
                                   <img src="./images/user1.png" alt="" />
@@ -1070,7 +1068,7 @@ class Home extends Component{
                                   className="user-profy slick-slide slick-cloned"
                                   data-slick-index="10"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}} 
                                   tabindex="-1"
                                 >
                                   <img src="./images/user2.png" alt="" />
@@ -1113,7 +1111,7 @@ class Home extends Component{
                                   className="user-profy slick-slide slick-cloned"
                                   data-slick-index="11"
                                   aria-hidden="true"
-                                  style="width: 153px"
+                                  style={{width: "153px"}}
                                   tabindex="-1"
                                 >
                                   <img src="./images/user3.png" alt="" />
@@ -1157,7 +1155,7 @@ class Home extends Component{
   
                             <span
                               className="slick-nexti slick-arrow"
-                              style="display: inline"
+                              style={{display: "inline"}}
                             ></span>
                           </div>
                         </div>
@@ -1207,7 +1205,7 @@ class Home extends Component{
                                 >
                               </li>
                             </ul>
-                            <ul className="bk-links" style="display: none">
+                            <ul className="bk-links" style={{display: "none"}}>
                               <li>
                                 <a href="./index.html#" title=""
                                   ><i className="la la-bookmark"></i
@@ -1321,8 +1319,8 @@ class Home extends Component{
                               </ul>
                               <ul
                                 className="bk-links"
-                                className="bk-links"
-                                style="display: none"
+                               // className="bk-links"
+                                style={{display: "none"}}
                               >
                                 <li>
                                   <a href="./index.html#" title=""
@@ -1384,7 +1382,7 @@ class Home extends Component{
                               >
                             </div>
                           </div>
-                          <div className="comment-section" style="display: none">
+                          <div className="comment-section" style={{display: "none"}}>
                             <a href="./index.html#" className="plus-ic">
                               <i className="la la-plus"></i>
                             </a>
@@ -1490,7 +1488,7 @@ class Home extends Component{
                   </div>
                   <div className="col-lg-3 pd-right-none no-pd">
                     <div className="right-sidebar">
-                      <div className="widget widget-about" style="display: none">
+                      <div className="widget widget-about" style={{display: "none"}}>
                         <img src="./images/lec.png" alt="" />
                         <h3>Track Time on LEC</h3>
                         <span>Pay only for the Hours worked</span>
@@ -1499,7 +1497,7 @@ class Home extends Component{
                           <a href="./index.html#" title="">Learn More</a>
                         </div>
                       </div>
-                      <div className="widget widget-jobs" style="display: none">
+                      <div className="widget widget-jobs" style={{display: "none"}}>
                         <div className="sd-title">
                           <h3>Top Jobs</h3>
                           <i className="la la-ellipsis-v"></i>
@@ -1597,7 +1595,7 @@ class Home extends Component{
                           </p>
                         </div>
                       </div>
-                      <div className="widget widget-jobs" style="display: none">
+                      <div className="widget widget-jobs" style={{display: "none"}}>
                         <div className="sd-title">
                           <h3>Most Viewed This Week</h3>
                           <i className="la la-ellipsis-v"></i>
@@ -1643,7 +1641,7 @@ class Home extends Component{
                       </div>
                       <div
                         className="widget suggestions full-width"
-                        style="display: none"
+                        style={{display: "none"}}
                       >
                         <div className="sd-title">
                           <h3>Most Viewed People</h3>
@@ -1829,7 +1827,7 @@ class Home extends Component{
             ></a>
           </div>
         </div>
-        <div className="chatbox-list" style="right: 270px; display: none">
+        <div className="chatbox-list" style={{right: "270px", display: "none"}}>
           <div className="chatbox">
             <div className="chat-mg">
               <a href="./index.html#" title=""
@@ -1860,13 +1858,13 @@ class Home extends Component{
                 <div
                   id="mCSB_1"
                   className="mCustomScrollBox mCS-dark mCSB_vertical mCSB_inside"
-                  style="max-height: none"
+                  style={{maxHeight: "none"}}
                   tabindex="0"
                 >
                   <div
                     id="mCSB_1_container"
                     className="mCSB_container"
-                    style="position: relative; top: 0; left: 0"
+                    style={{position: "relative", top: "0", left: "0"}}
                     dir="ltr"
                   >
                     <div className="chat-msg">
@@ -1896,24 +1894,24 @@ class Home extends Component{
                   <div
                     id="mCSB_1_scrollbar_vertical"
                     className="mCSB_scrollTools mCSB_1_scrollbar mCS-dark mCSB_scrollTools_vertical"
-                    style="display: block"
+                    style={{display: "block"}}
                   >
                     <div className="mCSB_draggerContainer">
                       <div
                         id="mCSB_1_dragger_vertical"
                         className="mCSB_dragger"
-                        style="
-                          position: absolute;
-                          min-height: 30px;
-                          display: block;
-                          height: 198px;
-                          max-height: 270px;
-                          top: 0px;
-                        "
+                        style={{
+                          position: "absolute",
+                          minHeight: "30px",
+                          display: "block",
+                          height: "198px",
+                          maxHeight: "270px",
+                          top: "0px"
+                        }}
                       >
                         <div
                           className="mCSB_dragger_bar"
-                          style="line-height: 30px"
+                          style={{lineHeight: "30px"}}
                         ></div>
                       </div>
                       <div className="mCSB_draggerRail"></div>
@@ -1975,13 +1973,13 @@ class Home extends Component{
                 <div
                   id="mCSB_2"
                   className="mCustomScrollBox mCS-dark mCSB_vertical mCSB_inside"
-                  style="max-height: none"
+                  style={{maxHeight: "none"}}
                   tabindex="0"
                 >
                   <div
                     id="mCSB_2_container"
                     className="mCSB_container"
-                    style="position: relative; top: 0; left: 0"
+                    style={{position: "relative", top: "0", left: "0"}}
                     dir="ltr"
                   >
                     <div className="chat-msg">
@@ -2011,24 +2009,24 @@ class Home extends Component{
                   <div
                     id="mCSB_2_scrollbar_vertical"
                     className="mCSB_scrollTools mCSB_2_scrollbar mCS-dark mCSB_scrollTools_vertical"
-                    style="display: block"
+                    style={{display: "block"}}
                   >
                     <div className="mCSB_draggerContainer">
                       <div
                         id="mCSB_2_dragger_vertical"
                         className="mCSB_dragger"
-                        style="
-                          position: absolute;
-                          min-height: 30px;
-                          display: block;
-                          height: 198px;
-                          max-height: 270px;
-                          top: 0px;
-                        "
+                        style={{
+                          position: "absolute",
+                          minHeight: "30px",
+                          display: "block",
+                          height: "198px",
+                          maxHeight: "270px",
+                          top: "0px"
+                        }}
                       >
                         <div
                           className="mCSB_dragger_bar"
-                          style="line-height: 30px"
+                          style={{lineHeight: "30px"}}
                         ></div>
                       </div>
                       <div className="mCSB_draggerRail"></div>
@@ -2106,7 +2104,6 @@ class Home extends Component{
                     <span>11:39 PM</span>
                   </div>
                 </div>
-                <ConvoList></ConvoList>
                 <div className="conv-list">
                   <div className="usrr-pic">
                     <img src="./images/usy3.png" alt="" />
@@ -2125,9 +2122,7 @@ class Home extends Component{
             </div>
           </div>
         </div>
-      </div>)
+      </div>
     }
 }
-
-
 export default Home;
