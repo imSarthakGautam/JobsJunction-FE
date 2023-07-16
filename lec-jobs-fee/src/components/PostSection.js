@@ -1,65 +1,37 @@
 import { Component } from "react";
 
-const postData =[
+const postData = [
   {
     "title": "Full Stack Developer",
-    "description": "For a client project PHP Developer is required",
+    "description": "For a client project Full Stack Developer is required",
     "location": "Kathmandu",
     "job_type": "Full Time",
     "pay_rate_per_hr_dollar": 100.0,
-    "skills": [
-      "PHP",
-      "JS",
-      "HTML"
-    ],
-    "liked_by": [
-      "test111",
-      "test1",
-      "test123"
-    ],
-    "viewed_by": [
-      "test111",
-      "test1",
-      "test123"
-    ],
+    "skills": ["PHP", "JS", "HTML"],
+    "liked_by": ["test111", "test1", "test123"],
+    "viewed_by": ["test111", "test1", "test123"],
     "id": 2,
     "user_id": 1,
     "post_by_username": "test123",
-    "post_by_fullname": "Royal Nyar",
+    "post_by_fullname": "Royal Shrestha",
     "post_date": "2023-06-10T09:24:07.659034",
-    "comments": [
-     
-    ]
+    "comments": []
   },
   {
     "title": "AI/ML Developer Required",
-    "description": "For a client project PHP Developer is required",
+    "description": "For a client project AI/ML Developer is required",
     "location": "Bhairahawa",
     "job_type": "Full Time",
     "pay_rate_per_hr_dollar": 69.0,
-    "skills": [
-      "PHP",
-      "JS",
-      "HTML"
-    ],
-    "liked_by": [
-      "test111",
-      "test1",
-      "test123"
-    ],
-    "viewed_by": [
-      "test111",
-      "test1",
-      "test123"
-    ],
+    "skills": ["PHP", "JS", "HTML"],
+    "liked_by": ["test111", "test1", "test123"],
+    "viewed_by": ["test111", "test1", "test123"],
     "id": 3,
     "user_id": 2,
     "post_by_username": "test321",
     "post_by_fullname": "Prajol Ghirmire",
     "post_date": "2023-06-10T21:51:10.643105",
-    "comments": [
-     
-    ]
+    "comments": []
   },
   {
     "title": "PHP Developer Required",
@@ -67,162 +39,169 @@ const postData =[
     "location": "Kathmandu",
     "job_type": "Full Time",
     "pay_rate_per_hr_dollar": 10.0,
-    "skills": [
-      "PHP",
-      "JS",
-      "HTML"
-    ],
-    "liked_by": [
-      "test111",
-      "test1",
-      "test123"
-    ],
-    "viewed_by": [
-      "test111",
-      "test1",
-      "test123"
-    ],
+    "skills": ["PHP", "JS", "HTML"],
+    "liked_by": ["test111", "test1", "test123"],
+    "viewed_by": ["test111", "test1", "test123"],
     "id": 4,
     "user_id": 3,
     "post_by_username": "test111",
     "post_by_fullname": "Prabin Joshi",
     "post_date": "2023-06-10T21:53:40.698655",
-    "comments": [
-     
-    ]
+    "comments": []
   }
 ]
-class PostSection extends Component {
-  render() {
 
-    const {user}= this.props;
+
+class PostBar extends Component {
+  constructor() {
+    super();
+    this.state = {
+      posts: [],
+    };
+  }
+
+  componentDidMount() {
+    const that = this;
+    fetch("http://localhost:5000/api/v1/posts")
+      .then((resp) => resp.json())
+      .then((data) => {
+        that.setState({ posts: data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  render() {
     return (
-      <div className="posts-section">
-       {postData.map( (post,idx) => <div key = {idx} className="post-bar">
-        {/* here b is index that is unique and allows to have distinction */}
-          <div className="post_topbar">
-            <div className="usy-dt">
-              <img src={"./images/" + post.post_by_username+".jpg"} alt="" />
-              <div className="usy-name">
-                <h3>{post.post_by_fullname}</h3>
-                <span>3 min ago</span>
+      <div>
+        {this.state.posts.map((post, index) => (
+          <div key={index} className="post-bar">
+            <div className="post_topbar">
+              <div className="usy-dt">
+                <img
+                  src={"./images/" + post.post_by_username + ".jpg"}
+                  alt=""
+                />
+                <div className="usy-name">
+                  {/* <h3>{this.props.user?.fullname}</h3> */}
+                  <h3>{post.post_by_fullname}</h3>
+                  <span>3 min ago</span>
+                </div>
+              </div>
+              <div className="ed-opts">
+                <a href="./index.html#" title="" className="ed-opts-open">
+                  <i className="la la-ellipsis-v"></i>
+                </a>
+                <ul className="ed-options">
+                  <li>
+                    <a href="./index.html#" title="">
+                      Edit Post
+                    </a>
+                  </li>
+                  <li>
+                    <a href="./index.html#" title="">
+                      Unsaved
+                    </a>
+                  </li>
+                  <li>
+                    <a href="./index.html#" title="">
+                      Unbid
+                    </a>
+                  </li>
+                  <li>
+                    <a href="./index.html#" title="">
+                      Close
+                    </a>
+                  </li>
+                  <li>
+                    <a href="./index.html#" title="">
+                      Hide
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
-            <div className="ed-opts">
-              <a href="./index.html#" title="" className="ed-opts-open">
-                <i className="la la-ellipsis-v"></i>
-              </a>
-              <ul className="ed-options">
+            <div className="epi-sec">
+              <ul className="descp">
+                <li>
+                  <img src="./images/icon8.png" alt="" />
+                  <span>Epic Coder</span>
+                </li>
+                <li>
+                  <img src="./images/icon9.png" alt="" />
+                  <span>{post.location}</span>
+                </li>
+              </ul>
+              <ul className="bk-links" style={{ display: "none" }}>
                 <li>
                   <a href="./index.html#" title="">
-                    Edit Post
+                    <i className="la la-bookmark"></i>
                   </a>
                 </li>
                 <li>
                   <a href="./index.html#" title="">
-                    Unsaved
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    Unbid
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    Close
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    Hide
+                    <i className="la la-envelope"></i>
                   </a>
                 </li>
               </ul>
             </div>
-          </div>
-          <div className="epi-sec">
-            <ul className="descp">
-              <li>
-                <img src="./images/icon8.png" alt="" />
-                <span>Epic Coder</span>
-              </li>
-              <li>
-                <img src="./images/icon9.png" alt="" />
-                <span>{post.location}</span>
-              </li>
-            </ul>
-            <ul className="bk-links" style={{ display: "none" }}>
-              <li>
+            <div className="job_descp">
+              <h3>{post.title}</h3>
+              <ul className="job-dt">
+                <li>
+                  <a href="./index.html#" title="">
+                    {post.job_type}
+                  </a>
+                </li>
+                <li>
+                  <span>{"$" + post.pay_rate_per_hr_dollar + "/ hr"}</span>
+                </li>
+              </ul>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id
+                magna sit amet...
                 <a href="./index.html#" title="">
-                  <i className="la la-bookmark"></i>
+                  view more
                 </a>
-              </li>
-              <li>
-                <a href="./index.html#" title="">
-                  <i className="la la-envelope"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="job_descp">
-            <h3>{post.title}</h3>
-            <ul className="job-dt">
-              <li>
-                <a href="./index.html#" title="">
-                 {post.job_type}
-                </a>
-              </li>
-              <li>
-                <span>{"$" + post.pay_rate_per_hr_dollar}</span>
-              </li>
-            </ul>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id
-              magna sit amet...
-              <a href="./index.html#" title="">
-                view more
+              </p>
+              <ul className="skill-tags">
+                {post.skills.map((skills, idx2) => (
+                  <li key={idx2}>
+                    <a href="./index.html#" title="">
+                      {skills}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="job-status-bar">
+              <ul className="like-com">
+                <li>
+                  <a href="./index.html#">
+                    <i className="fas fa-heart"></i> Like
+                  </a>
+                  <img src="./images/liked-img.png" alt="" />
+                  <span>{post.liked_by.length}</span>
+                </li>
+                <li>
+                  <a href="./index.html#" className="com">
+                    <i className="fas fa-comment-alt"></i>{" "}
+                    {"Comment" + post.comments.length}
+                  </a>
+                </li>
+              </ul>
+              <a href="./index.html#">
+                <i className="fas fa-eye"></i>
+                {"Views " + post.viewed_by.length}
               </a>
-            </p>
-            <ul className="skill-tags">
-              {post.skills.map((skills,idx2)=>{return(
-              <li key={idx2}>
-                <a href="./index.html#" title="">
-                  {skills}
-                </a>
-              </li>
-              
-              )})}
-              
-            </ul>
+            </div>
           </div>
-          <div className="job-status-bar">
-            <ul className="like-com">
-              <li>
-                <a href="./index.html#">
-                  <i className="fas fa-heart"></i> Like
-                </a>
-                <img src="./images/liked-img.png" alt="" />
-                <span>{post.liked_by.length}</span>
-              </li>
-              <li>
-                <a href="./index.html#" className="com">
-                  <i className="fas fa-comment-alt"></i>{ "Comment"+ post.comments.length}
-                </a>
-              </li>
-            </ul>
-            <a href="./index.html#">
-              <i className="fas fa-eye"></i>{"Views" + post.viewed_by.length}
-            
-            </a>
-          </div>
-        </div>
-       )}
-       
+        ))}
       </div>
     );
   }
 }
 
-export default PostSection;
+export default PostBar;
