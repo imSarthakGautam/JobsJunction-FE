@@ -5,21 +5,37 @@ import PostTopBar from "./PostTopBar";
 import PostSection from "./PostSection";
 import TagsSection from "./TagsSection";
 
+
+const userData={
+  email : "test@gamil.com",
+  username: "sarthak",
+  fullname :"Sarthak Gautam",
+  title :"Softwawre Developer",
+  skills :["Js", "React", "Java"],
+  address :"kathmandu, Nepal",
+  job_type : "Full time",
+  id : 1,
+  is_active: true,
+  followers : [ "username12", "username 123", "username1234"],
+  followings : [ "username12", "username 123", "username1234"]
+ 
+};
+
 class Home extends Component {
   render() {
     return (
       <div className="wrapper">
-        <Header />
+        <Header user={userData}/>
         <main>
           <div className="main-section">
             <div className="container">
               <div className="main-section-data">
                 <div className="row">
-                  <UserData />
+                  <UserData user={userData} />
                   <div className="col-lg-6 col-md-8 no-pd">
                     <div className="main-ws-sec">
-                      <PostTopBar />
-                      <PostSection />
+                      <PostTopBar   user={userData}/>
+                      <PostSection user={userData}/>
                     </div>
                   </div>
                   <div className="col-lg-3 pd-right-none no-pd">
@@ -113,7 +129,7 @@ class Home extends Component {
                           </div>
                         </div>
                       </div>
-                      <TagsSection />
+                      <TagsSection  />
                       <div
                         className="widget widget-jobs"
                         style={{ display: "none" }}
@@ -183,7 +199,7 @@ class Home extends Component {
                           <div className="suggestion-usd">
                             <img src="./images/s2.png" alt="" />
                             <div className="sgt-text">
-                              <h4>Saroj Shakya</h4>
+                              <h4>{}</h4>
                               <span>PHP Developer</span>
                             </div>
                             <span>
@@ -223,7 +239,7 @@ class Home extends Component {
                           <div className="suggestion-usd">
                             <img src="./images/s6.png" alt="" />
                             <div className="sgt-text">
-                              <h4>Saroj Shakya</h4>
+                              <h4></h4>
                               <span>PHP Developer</span>
                             </div>
                             <span>
@@ -387,7 +403,7 @@ class Home extends Component {
                 <div className="chat-user-info">
                   <img src="./images/us-img1.png" alt="" />
                   <h3>
-                    Saroj Shakya <span className="status-info"></span>
+                    Sarthak Gautam <span className="status-info"></span>
                   </h3>
                 </div>
                 <div className="st-icons">
@@ -508,7 +524,7 @@ class Home extends Component {
                 <div className="chat-user-info">
                   <img src="./images/us-img1.png" alt="" />
                   <h3>
-                    Saroj Shakya <span className="status-info"></span>
+                    Sarthak Gautam <span className="status-info"></span>
                   </h3>
                 </div>
                 <div className="st-icons">
@@ -639,7 +655,7 @@ class Home extends Component {
                     <span className="active-status activee"></span>
                   </div>
                   <div className="usy-info">
-                    <h3>Saroj Shakya</h3>
+                    <h3>Sarthak Gautam</h3>
                     <span>
                       Lorem ipsum dolor <img src="./images/smley.png" alt="" />
                     </span>
@@ -654,7 +670,7 @@ class Home extends Component {
                     <img src="./images/usy2.png" alt="" />
                   </div>
                   <div className="usy-info">
-                    <h3>Saroj Shakya</h3>
+                    <h3>Sarthak Gautam</h3>
                     <span>
                       Lorem ipsum dolor <img src="./images/smley.png" alt="" />
                     </span>
@@ -668,7 +684,7 @@ class Home extends Component {
                     <img src="./images/usy3.png" alt="" />
                   </div>
                   <div className="usy-info">
-                    <h3>Saroj Shakya</h3>
+                    <h3>Sarthak Gautam</h3>
                     <span>
                       Lorem ipsum dolor <img src="./images/smley.png" alt="" />
                     </span>

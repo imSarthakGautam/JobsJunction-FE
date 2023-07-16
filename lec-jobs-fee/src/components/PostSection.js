@@ -1,15 +1,110 @@
 import { Component } from "react";
 
+const postData =[
+  {
+    "title": "Full Stack Developer",
+    "description": "For a client project PHP Developer is required",
+    "location": "Kathmandu",
+    "job_type": "Full Time",
+    "pay_rate_per_hr_dollar": 100.0,
+    "skills": [
+      "PHP",
+      "JS",
+      "HTML"
+    ],
+    "liked_by": [
+      "test111",
+      "test1",
+      "test123"
+    ],
+    "viewed_by": [
+      "test111",
+      "test1",
+      "test123"
+    ],
+    "id": 2,
+    "user_id": 1,
+    "post_by_username": "test123",
+    "post_by_fullname": "Royal Nyar",
+    "post_date": "2023-06-10T09:24:07.659034",
+    "comments": [
+     
+    ]
+  },
+  {
+    "title": "AI/ML Developer Required",
+    "description": "For a client project PHP Developer is required",
+    "location": "Bhairahawa",
+    "job_type": "Full Time",
+    "pay_rate_per_hr_dollar": 69.0,
+    "skills": [
+      "PHP",
+      "JS",
+      "HTML"
+    ],
+    "liked_by": [
+      "test111",
+      "test1",
+      "test123"
+    ],
+    "viewed_by": [
+      "test111",
+      "test1",
+      "test123"
+    ],
+    "id": 3,
+    "user_id": 2,
+    "post_by_username": "test321",
+    "post_by_fullname": "Prajol Ghirmire",
+    "post_date": "2023-06-10T21:51:10.643105",
+    "comments": [
+     
+    ]
+  },
+  {
+    "title": "PHP Developer Required",
+    "description": "For a client project PHP Developer is required",
+    "location": "Kathmandu",
+    "job_type": "Full Time",
+    "pay_rate_per_hr_dollar": 10.0,
+    "skills": [
+      "PHP",
+      "JS",
+      "HTML"
+    ],
+    "liked_by": [
+      "test111",
+      "test1",
+      "test123"
+    ],
+    "viewed_by": [
+      "test111",
+      "test1",
+      "test123"
+    ],
+    "id": 4,
+    "user_id": 3,
+    "post_by_username": "test111",
+    "post_by_fullname": "Prabin Joshi",
+    "post_date": "2023-06-10T21:53:40.698655",
+    "comments": [
+     
+    ]
+  }
+]
 class PostSection extends Component {
   render() {
+
+    const {user}= this.props;
     return (
       <div className="posts-section">
-        <div className="post-bar">
+       {postData.map( (post,idx) => <div key = {idx} className="post-bar">
+        {/* here b is index that is unique and allows to have distinction */}
           <div className="post_topbar">
             <div className="usy-dt">
-              <img src="./images/saroj-pic.jpeg" alt="" />
+              <img src={"./images/" + post.post_by_username+".jpg"} alt="" />
               <div className="usy-name">
-                <h3>Saroj Shakya</h3>
+                <h3>{post.post_by_fullname}</h3>
                 <span>3 min ago</span>
               </div>
             </div>
@@ -54,7 +149,7 @@ class PostSection extends Component {
               </li>
               <li>
                 <img src="./images/icon9.png" alt="" />
-                <span>India</span>
+                <span>{post.location}</span>
               </li>
             </ul>
             <ul className="bk-links" style={{ display: "none" }}>
@@ -71,15 +166,15 @@ class PostSection extends Component {
             </ul>
           </div>
           <div className="job_descp">
-            <h3>Senior Wordpress Developer</h3>
+            <h3>{post.title}</h3>
             <ul className="job-dt">
               <li>
                 <a href="./index.html#" title="">
-                  Full Time
+                 {post.job_type}
                 </a>
               </li>
               <li>
-                <span>$30 / hr</span>
+                <span>{"$" + post.pay_rate_per_hr_dollar}</span>
               </li>
             </ul>
             <p>
@@ -91,31 +186,15 @@ class PostSection extends Component {
               </a>
             </p>
             <ul className="skill-tags">
-              <li>
+              {post.skills.map((skills,idx2)=>{return(
+              <li key={idx2}>
                 <a href="./index.html#" title="">
-                  HTML
+                  {skills}
                 </a>
               </li>
-              <li>
-                <a href="./index.html#" title="">
-                  PHP
-                </a>
-              </li>
-              <li>
-                <a href="./index.html#" title="">
-                  CSS
-                </a>
-              </li>
-              <li>
-                <a href="./index.html#" title="">
-                  Javascript
-                </a>
-              </li>
-              <li>
-                <a href="./index.html#" title="">
-                  Wordpress
-                </a>
-              </li>
+              
+              )})}
+              
             </ul>
           </div>
           <div className="job-status-bar">
@@ -125,1092 +204,22 @@ class PostSection extends Component {
                   <i className="fas fa-heart"></i> Like
                 </a>
                 <img src="./images/liked-img.png" alt="" />
-                <span>25</span>
+                <span>{post.liked_by.length}</span>
               </li>
               <li>
                 <a href="./index.html#" className="com">
-                  <i className="fas fa-comment-alt"></i> Comment 15
+                  <i className="fas fa-comment-alt"></i>{ "Comment"+ post.comments.length}
                 </a>
               </li>
             </ul>
             <a href="./index.html#">
-              <i className="fas fa-eye"></i>Views 50
+              <i className="fas fa-eye"></i>{"Views" + post.viewed_by.length}
+            
             </a>
           </div>
         </div>
-        <div className="top-profiles" style={{ display: "none" }}>
-          <div className="pf-hd">
-            <h3>Top Profiles</h3>
-            <i className="la la-ellipsis-v"></i>
-          </div>
-          <div className="profiles-slider slick-initialized slick-slider">
-            <span
-              className="slick-previous slick-arrow"
-              style={{ display: " inline" }}
-            ></span>
-            <div className="slick-list draggable">
-              <div
-                className="slick-track"
-                style={{
-                  opacity: 1,
-                  width: "2415px",
-                  transform: "translate3d(-805px, 0px, 0px)",
-                  transition: "transform 500ms ease 0s",
-                }}
-              >
-                <div
-                  className="user-profy slick-slide slick-cloned"
-                  data-slick-index="-3"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user1.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide slick-cloned"
-                  data-slick-index="-2"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user2.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide slick-cloned"
-                  data-slick-index="-1"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user3.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide"
-                  data-slick-index="0"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user1.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide"
-                  data-slick-index="1"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="0"
-                >
-                  <img src="./images/user2.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="0"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="0"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="0"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="0">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide slick-current slick-active"
-                  data-slick-index="2"
-                  aria-hidden="false"
-                  style={{ width: "153px" }}
-                  tabIndex="0"
-                >
-                  <img src="./images/user3.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="0"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="0"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="0"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="0">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide slick-active"
-                  data-slick-index="3"
-                  aria-hidden="false"
-                  style={{ width: "153px" }}
-                  tabIndex="0"
-                >
-                  <img src="./images/user1.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="0"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="0"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="0"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="0">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide slick-active"
-                  data-slick-index="4"
-                  aria-hidden="false"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user2.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide"
-                  data-slick-index="5"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user3.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide slick-cloned"
-                  data-slick-index="6"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user1.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide slick-cloned"
-                  data-slick-index="7"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user2.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide slick-cloned"
-                  data-slick-index="8"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user3.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide slick-cloned"
-                  data-slick-index="9"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user1.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide slick-cloned"
-                  data-slick-index="10"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user2.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-                <div
-                  className="user-profy slick-slide slick-cloned"
-                  data-slick-index="11"
-                  aria-hidden="true"
-                  style={{ width: "153px" }}
-                  tabIndex="-1"
-                >
-                  <img src="./images/user3.png" alt="" />
-                  <h3>Saroj Shakya</h3>
-                  <span>Graphic Designer</span>
-                  <ul>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="followw"
-                        tabIndex="-1"
-                      >
-                        Follow
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="envlp"
-                        tabIndex="-1"
-                      >
-                        <img src="./images/envelop.png" alt="" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="./index.html#"
-                        title=""
-                        className="hire"
-                        tabIndex="-1"
-                      >
-                        hire
-                      </a>
-                    </li>
-                  </ul>
-                  <a href="./index.html#" title="" tabIndex="-1">
-                    View Profile
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <span
-              className="slick-nexti slick-arrow"
-              style={{ display: " inline" }}
-            ></span>
-          </div>
-        </div>
-        <div className="post-bar">
-          <div className="post_topbar">
-            <div className="usy-dt">
-              <img src="./images/saroj-pic.jpeg" alt="" />
-              <div className="usy-name">
-                <h3>Saroj Shakya</h3>
-                <span>3 min ago</span>
-              </div>
-            </div>
-            <div className="ed-opts">
-              <a href="./index.html#" title="" className="ed-opts-open">
-                <i className="la la-ellipsis-v"></i>
-              </a>
-              <ul className="ed-options">
-                <li>
-                  <a href="./index.html#" title="">
-                    Edit Post
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    Unsaved
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    Unbid
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    Close
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    Hide
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="epi-sec">
-            <ul className="descp">
-              <li>
-                <img src="./images/icon8.png" alt="" />
-                <span>Epic Coder</span>
-              </li>
-              <li>
-                <img src="./images/icon9.png" alt="" />
-                <span>India</span>
-              </li>
-            </ul>
-            <ul className="bk-links" style={{ display: "none" }}>
-              <li>
-                <a href="./index.html#" title="">
-                  <i className="la la-bookmark"></i>
-                </a>
-              </li>
-              <li>
-                <a href="./index.html#" title="">
-                  <i className="la la-envelope"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="job_descp">
-            <h3>Senior Wordpress Developer</h3>
-            <ul className="job-dt">
-              <li>
-                <a href="./index.html#" title="">
-                  Full Time
-                </a>
-              </li>
-              <li>
-                <span>$30 / hr</span>
-              </li>
-            </ul>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id
-              magna sit amet...
-              <a href="./index.html#" title="">
-                view more
-              </a>
-            </p>
-            <ul className="skill-tags">
-              <li>
-                <a href="./index.html#" title="">
-                  HTML
-                </a>
-              </li>
-              <li>
-                <a href="./index.html#" title="">
-                  PHP
-                </a>
-              </li>
-              <li>
-                <a href="./index.html#" title="">
-                  CSS
-                </a>
-              </li>
-              <li>
-                <a href="./index.html#" title="">
-                  Javascript
-                </a>
-              </li>
-              <li>
-                <a href="./index.html#" title="">
-                  Wordpress
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="job-status-bar">
-            <ul className="like-com">
-              <li>
-                <a href="./index.html#">
-                  <i className="fas fa-heart"></i> Like
-                </a>
-                <img src="./images/liked-img.png" alt="" />
-                <span>25</span>
-              </li>
-              <li>
-                <a href="./index.html#" className="com">
-                  <i className="fas fa-comment-alt"></i> Comment 15
-                </a>
-              </li>
-            </ul>
-            <a href="./index.html#">
-              <i className="fas fa-eye"></i>Views 50
-            </a>
-          </div>
-        </div>
-        <div className="posty">
-          <div className="post-bar no-margin">
-            <div className="post_topbar">
-              <div className="usy-dt">
-                <img src="./images/saroj-pic.jpeg" alt="" />
-                <div className="usy-name">
-                  <h3>Saroj Shakya</h3>
-                  <span>3 min ago</span>
-                </div>
-              </div>
-              <div className="ed-opts">
-                <a href="./index.html#" title="" className="ed-opts-open">
-                  <i className="la la-ellipsis-v"></i>
-                </a>
-                <ul className="ed-options">
-                  <li>
-                    <a href="./index.html#" title="">
-                      Edit Post
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./index.html#" title="">
-                      Unsaved
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./index.html#" title="">
-                      Unbid
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./index.html#" title="">
-                      Close
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./index.html#" title="">
-                      Hide
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="epi-sec">
-              <ul className="descp">
-                <li>
-                  <img src="./images/icon8.png" alt="" />
-                  <span>Epic Coder</span>
-                </li>
-                <li>
-                  <img src="./images/icon9.png" alt="" />
-                  <span>India</span>
-                </li>
-              </ul>
-              <ul className="bk-links" style={{ display: "none" }}>
-                <li>
-                  <a href="./index.html#" title="">
-                    <i className="la la-bookmark"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    <i className="la la-envelope"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="job_descp">
-              <h3>Senior Wordpress Developer</h3>
-              <ul className="job-dt">
-                <li>
-                  <a href="./index.html#" title="">
-                    Full Time
-                  </a>
-                </li>
-                <li>
-                  <span>$30 / hr</span>
-                </li>
-              </ul>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id
-                magna sit amet...
-                <a href="./index.html#" title="">
-                  view more
-                </a>
-              </p>
-              <ul className="skill-tags">
-                <li>
-                  <a href="./index.html#" title="">
-                    HTML
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    PHP
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    CSS
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    Javascript
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.html#" title="">
-                    Wordpress
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="job-status-bar">
-              <ul className="like-com">
-                <li>
-                  <a href="./index.html#">
-                    <i className="fas fa-heart"></i> Like
-                  </a>
-                  <img src="./images/liked-img.png" alt="" />
-                  <span>25</span>
-                </li>
-                <li>
-                  <a href="./index.html#" className="com">
-                    <i className="fas fa-comment-alt"></i> Comment 15
-                  </a>
-                </li>
-              </ul>
-              <a href="./index.html#">
-                <i className="fas fa-eye"></i>Views 50
-              </a>
-            </div>
-          </div>
-          <div className="comment-section" style={{ display: "none" }}>
-            <a href="./index.html#" className="plus-ic">
-              <i className="la la-plus"></i>
-            </a>
-            <div className="comment-sec">
-              <ul>
-                <li>
-                  <div className="comment-list">
-                    <div className="bg-img">
-                      <img src="./images/bg-img1.png" alt="" />
-                    </div>
-                    <div className="comment">
-                      <h3>Saroj Shakya</h3>
-                      <span>
-                        <img src="./images/clock.png" alt="" /> 3 min ago
-                      </span>
-                      <p>Lorem ipsum dolor sit amet,</p>
-                      <a href="./index.html#" title="" className="active">
-                        <i className="fa fa-reply-all"></i>Reply
-                      </a>
-                    </div>
-                  </div>
-                  <ul>
-                    <li>
-                      <div className="comment-list">
-                        <div className="bg-img">
-                          <img src="./images/bg-img2.png" alt="" />
-                        </div>
-                        <div className="comment">
-                          <h3>Saroj Shakya</h3>
-                          <span>
-                            <img src="./images/clock.png" alt="" />3 min ago
-                          </span>
-                          <p>Hi John</p>
-                          <a href="./index.html#" title="">
-                            <i className="fa fa-reply-all"></i>Reply
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <div className="comment-list">
-                    <div className="bg-img">
-                      <img src="./images/bg-img3.png" alt="" />
-                    </div>
-                    <div className="comment">
-                      <h3>Saroj Shakya</h3>
-                      <span>
-                        <img src="./images/clock.png" alt="" /> 3 min ago
-                      </span>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Aliquam luctus hendrerit metus, ut ullamcorper quam
-                        finibus at.
-                      </p>
-                      <a href="./index.html#" title="">
-                        <i className="fa fa-reply-all"></i>Reply
-                      </a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div className="post-comment">
-              <div className="cm_img">
-                <img src="./images/bg-img4.png" alt="" />
-              </div>
-              <div className="comment_box">
-                <form>
-                  <input type="text" placeholder="Post a comment" />
-                  <button type="submit">Send</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="process-comm">
-          <div className="spinner">
-            <div className="bounce1"></div>
-            <div className="bounce2"></div>
-            <div className="bounce3"></div>
-          </div>
-        </div>
+       )}
+       
       </div>
     );
   }
