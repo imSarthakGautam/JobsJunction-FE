@@ -1,9 +1,28 @@
 import { Component } from "react";
 
 class UserData extends Component {
+  constructor() {
+    super();
+    this.state = {
+      user: {},
+    };
+  }
+
+  componentDidMount() {
+    const that = this;
+    fetch("http://localhost:5000/api/v1/user")
+      .then((resp) => resp.json)
+      .then((data) => {
+        that.setState({ user: data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   render() {
     // const user = this.props.user;
-    const {user} = this.props;
+    const { user } = this.props;
     return (
       <div className="col-lg-3 col-md-4 pd-left-none no-pd">
         <div className="main-left-sidebar no-margin">
