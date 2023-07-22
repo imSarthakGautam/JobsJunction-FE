@@ -5,8 +5,9 @@ import PostTopBar from "./PostTopBar";
 import PostSection from "./PostSection";
 import TagsSection from "./TagsSection";
 
-
+/*
 const userData={
+
   email : "test@gamil.com",
   username: "sarthak",
   fullname :"Sarthak Gautam",
@@ -20,22 +21,50 @@ const userData={
   followings : [ "username12", "username 123", "username1234"]
  
 };
+*/
 
 class Home extends Component {
+  constructor(){
+    super();
+    this.state={
+      user:{},
+
+    }
+  }
+
+  componentDidMount(){
+    const that= this;
+    let resp =[];
+    fetch("http://localhost:5000/api/v1/user")
+      .then((resp) => resp.json())
+      .then((data) => {
+        that.setState({ user: data });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   render() {
+    const user={...this.state.user};
+    /* 
+    if (!Object.keys(user).length){
+      return <></>;
+   }
+  */
     return (
       <div className="wrapper">
-        <Header user={userData}/>
+        <Header user={user}/>
         <main>
           <div className="main-section">
             <div className="container">
               <div className="main-section-data">
                 <div className="row">
-                  <UserData user={userData} />
+                  <UserData user={user} />
                   <div className="col-lg-6 col-md-8 no-pd">
                     <div className="main-ws-sec">
-                      <PostTopBar   user={userData}/>
-                      <PostSection user={userData}/>
+                      <PostTopBar   user={user}/>
+                      <PostSection />
                     </div>
                   </div>
                   <div className="col-lg-3 pd-right-none no-pd">

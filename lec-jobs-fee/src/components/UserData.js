@@ -41,11 +41,11 @@ class UserData extends Component {
             <ul className="user-fw-status">
               <li>
                 <h4>Following</h4>
-                <span>{user?.followings.length}</span>
+                <span>{user?.followings?.length}</span>
               </li>
               <li>
                 <h4>Followers</h4>
-                <span>{user?.followers.length}</span>
+                <span>{user?.followers?.length}</span>
               </li>
               <li>
                 <a href="./my-profile.html" title="">
