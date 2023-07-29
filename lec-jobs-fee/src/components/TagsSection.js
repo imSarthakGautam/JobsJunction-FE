@@ -50,7 +50,7 @@ class TagsSection extends Component {
           <img src="./images/lec-full.png" alt="" />
           <p>
             <img src="./images/cp.png" alt="" />
-            Copyright 2019
+            Copyright 2023
           </p>
         </div>
       </div>
