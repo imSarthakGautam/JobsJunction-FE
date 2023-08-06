@@ -2,6 +2,13 @@ import { Component } from "react";
 
 class Login extends Component {
 
+constructor(){
+  super();
+  this.handleSignInClick = this.handleSignInClick.bind(this);
+
+}
+
+
   handleSignUpClick(evnt) {
     const formElem= document.getElementById("signup-form");
     const username= formElem.querySelector("#signin-username").value;
@@ -63,7 +70,7 @@ class Login extends Component {
       headers: {
         "Content-Type": "application/json",
       },
-      
+
       body: JSON.stringify({
         username,
         password,
@@ -73,6 +80,9 @@ class Login extends Component {
       .then((data) => {
         if (data.error) {
           document.querySelector("#err").innerHTML = data.error;
+        }
+        else{
+          this.props.loginUser(data);
         }
       })
       .catch((err) => {
