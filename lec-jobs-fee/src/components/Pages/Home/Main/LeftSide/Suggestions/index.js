@@ -3,6 +3,7 @@ import { USER_API } from "../../../../../../config";
 
 const Suggestions = (props) => {
   const [suggestions, setSuggestions] = useState([]);
+
   useEffect(() => {
     fetch(USER_API + "/" + props.user.id + "/suggestions", {
       method: "GET",
@@ -18,6 +19,7 @@ const Suggestions = (props) => {
       });
     // eslint-disable-next-line
   }, []);
+  
 
   return (
     <div className="suggestions full-width">
