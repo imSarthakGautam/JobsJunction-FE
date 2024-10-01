@@ -2,7 +2,7 @@
 
 
 //Url of backend server
-export const API_BASE_URL = "http://localhost:5001";
+export const API_BASE_URL = "http://localhost:5000";
 
 //App version/ version of Api being used
 export const API_VERSION = "/api/v1";
