@@ -1,4 +1,4 @@
-# JobJunction
+# JobsJunction
 JobJunction is a Full Stack web application designed via leveraging features of MERN Stack.
 JobJunction is a  platform designed for professional networking and job searching. It allows users to create detailed profiles, connect with industry professionals, apply for job opportunities, and engage with content in their field.
 Full Stack  Web Development via MERN Stack.
